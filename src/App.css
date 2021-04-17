@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
+.gopher {
+  height: 40vh;
+}
