@@ -14,10 +14,8 @@ The Go server will NOT run using `yarn start`, so all script references have bee
 > With commit title "Implemented //Go Embed::", and commits thereafter, you will need Go 1.16 or higher. If you are using an older version of Go you'll need to use a previous commit, So after you clone this repo and cd into the ReactGo directory, use the following 'git' command: (and 'oh yeah' you'll need to have 'git' installed)
 
 ```
-git checkout <<commit ID>>
+git checkout cb3c6ed00631ab12b56b7ea4cd98c53c16eb2eff
 ```
-
-Using the commit ID that looks something like "693ee874827a96d14191117e8583b025b0d8ecf6"
 
 To try ReactGo, after you clone this repo, you only need three commands `yarn build`, `go build`, and `./ReactGo`.
 
