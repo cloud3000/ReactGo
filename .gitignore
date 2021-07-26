@@ -9,6 +9,8 @@
 /coverage
 
 # production
+yarn.lock
+package-lock.json
 /build
 ReactGo
 # misc

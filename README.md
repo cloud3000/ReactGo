@@ -1,23 +1,123 @@
 # Getting Started with ReactGo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This EXAMPLE was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 #### The thought here is that Golang makes a better backend than the commonly used languages, and React is by far the winner of the frontend battle.
 
-The Go server will NOT run using `yarn start`, so all script references have been removed from package.json except build, so use `yarn build` to build th React frontend, Go has it's own build command.
+The Go server will NOT run using traditional npm/yarn `start` script, so all script references have been removed from package.json except build, so use `yarn build` or `npm build` to build th React frontend, Go has it's own build command, that will be discussed later.
 
 ### **Prerequisites**
+---
+**You must have nodejs, with yarn or npm, installed.**
+**The Best way to install NodeJS on Linux is to use _NVM_**
 
-1. You must have nodejs, with yarn or npm, installed.
-2. You must have Go (the Golang compiler and dev tools) installed to build main.go
+NodeJS
+: Server-Side JavaScript, used to develop server applications.
 
-> With the commit that begins with "Implemented //go.embed", and commits thereafter, you will need Go 1.16 or higher. If you are using an older version of Go you'll need to use a previous commit, So after you clone this repo and cd into the ReactGo directory, use the following 'git' command: (and 'oh yeah' you'll need to have 'git' installed).
+NVM
+: The NodeJS Version Manager.
+
+**Install NVM as Follows:**
+
+~~~bash
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+~~~
+
+The above command will clone the nvm repository to ~/.nvm and add the source line to your profile (~/.bash_profile, ~/.zshrc, ~/.profile, or ~/.bashrc).
+
+**_Restart_** your Terminal before start using NVM. If you are on SSH, exit from the current session and log in again.
+
+From your new Terminal session verify that NVM is installed correctly, run:
+
+~~~bash
+command -v nvm
+~~~
+
+Before in stalling NodeJS, consider which version you want to install. The ReactGo example used version v14.17.2, but you may want to use a newer version. For this reason NVM is a must.
+
+Use the following NVM command to see what current version are available:
+
+~~~bash
+nvm ls-remote
+~~~
+The listing of versions will start all the way back to the first version of NodeJS v0.1.14, to current LTS version, as well as the most recent unstable versions. The output will look like so:
+
+~~~
+       v14.15.0   (LTS: Fermium)
+       v14.15.1   (LTS: Fermium)
+       v14.15.2   (LTS: Fermium)
+       v14.15.3   (LTS: Fermium)
+       v14.15.4   (LTS: Fermium)
+       v14.15.5   (LTS: Fermium)
+       v14.16.0   (LTS: Fermium)
+       v14.16.1   (LTS: Fermium)
+       v14.17.0   (LTS: Fermium)
+       v14.17.1   (LTS: Fermium)
+->     v14.17.2   (LTS: Fermium)
+       v14.17.3   (Latest LTS: Fermium)
+        v15.0.0
+        v15.0.1
+        v15.1.0
+        v15.2.0
+        v15.2.1
+        v15.3.0
+        v15.4.0
+        v15.5.0
+        v15.5.1
+        v15.6.0
+        v15.7.0
+        v15.8.0
+        v15.9.0
+       v15.10.0
+       v15.11.0
+       v15.12.0
+       v15.13.0
+       v15.14.0
+        v16.0.0
+        v16.1.0
+        v16.2.0
+        v16.3.0
+        v16.4.0
+        v16.4.1
+        v16.4.2
+        v16.5.0
+~~~
+
+To install v14.17.2 type the following:
+
+~~~bash
+nvm install v14.17.2
+~~~
+**Other useful commands**
+
+nvm list
+: To see which versions of NodeJS are installed.
+
+node --version
+: To see the current version of NodeJS that you are using.
+
+npm -v
+: To see the current version of npm that you are using.
+
+npm install -g npm@latest
+: To install the latest version of npm (recommended)
+---
+**You must have Golang installed**
+
+The Go Programming language compiler
+: Golang compiler and dev tools, developed by Google and required to build main.go
+
+main.go
+: The only Go source code file in this example.
+
+> The current version of **ReactGo** has Implemented "//go.embed", and therefore requires Go 1.16 or higher. If you are using an older version of Go you'll need to use a previous commit, So after you clone this repo and cd into the ReactGo directory, use the following 'git' command: (and 'oh yeah' you'll need to have 'git' installed).
 
 ```
 git checkout cb3c6ed00631ab12b56b7ea4cd98c53c16eb2eff
 ```
 
-The commit above was the last commit that did NOT require Go 1.16, and therefore did NOT import "embed". I highly recommend that you don't use the older commit, and just upgrade to Go 1.16 or higher and try the "embed" package.
+The commit above was the last commit that did NOT require Go 1.16, and therefore did NOT Implemented "//go.embed". I highly recommend that you don't use the older commit, and just upgrade to Go 1.16 or higher and try the "embed" package.
 
 ## What is //go.embed ?
 
@@ -68,3 +168,19 @@ Then navigate your browser to `http://localhost:3000`
 > This source has been tested on Linux, not Windows or Mac. Therefore you may need to play with the path `build` It will probably work just the way it is on Mac, and windows. The Go docs say that the "embed" package makes Windows, Mac, and Linux file systems look the same when embedded.
 
 I am working on larger example of this using "embed" with "gorilla/mux". It will have a REST api, with user login and registration, a blog, and will be compatible with Sqlite, MySQL, and Postgres. All compiled in to one executable file. Additionally the React Frontend, and the Backend REST api will be severed from one port. This will be a simpler and more a secure method for production web applications.
+
+---
+## In Summary:
+
+>After you have Golang, git, nvm, NodeJs, and npm installed
+
+Execute the following commands to get ReactGo running:
+
+~~~bash
+git clone git@github.com:cloud3000/ReactGo.git
+cd ReactGo/
+go mod tidy
+go get
+npm install
+npm run build
+~~~
